@@ -36,11 +36,11 @@ class Vigenere(object):
 	
 	def __init__(self, **kwargs):
 		if 'alphabet' not in kwargs:			
-			self.alphabet = self.__alphabet
+			self.alphabet = self.__alphabet.lower()
 		else:	
-			self.alphabet = kwargs['alphabet'].upper()
+			self.alphabet = kwargs['alphabet'].lower()
 		if 'keyword' in kwargs:
-			self.keyword = kwargs['keyword'].upper()		
+			self.keyword = kwargs['keyword'].lower()
 		self.matrix = self.generateMatrix()
 	
 	def generateMatrix(self):
@@ -64,7 +64,7 @@ class Vigenere(object):
 	
 	def printMatrix(self):
 		sorted =  self.matrix.items()
-		sorted.sort()
+		#~ sorted.sort()
 		for k, v in sorted:
 			print k, v
 	

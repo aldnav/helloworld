@@ -19,25 +19,26 @@ class Vigenere(object):
 		r = c = 0
 		dim = len(self.alphabet)
 		mat = {}
-		row = []
+		row = {}
 
-		for symbol in self.alphabet:
-			for symbol in self.alphabet:
-				row.append(self.alphabet[c])
+		for r_symbol in self.alphabet:
+			for c_symbol in self.alphabet:
+				#~ row.append(self.alphabet[c])
+				row[self.alphabet[c]] = self.alphabet[c]
 				c += 1
 				if c >= dim:
 					c = 0
-			mat[row[0]] = row
-			row = []
+			mat[row.keys()[0]] = row
+			row = {}
 			r += 1
 			c = r % dim
 			
 		return mat
 	
 	def printMatrix(self):
-		sorted =  self.matrix.items()
-		sorted.sort()
-		for k, v in sorted:
+		#~ sorted =  self.matrix.items()
+		#~ sorted.sort()
+		for k, v in self.matrix.items():
 			print k, v
 	
 	def encrypt(self, keyword=__keyword, ):
